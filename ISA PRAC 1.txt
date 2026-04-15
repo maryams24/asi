@@ -1,0 +1,21 @@
+﻿Setting up an Audit Environment
+Enable All Audit Policies
+auditpol /set /category:* /success:enable /failure:enable
+Create Audit Test Folder
+mkdir C:\AuditTest
+Enable File Access Auditing
+auditpol /set /subcategory:"File System" /success:enable /failure:enable
+icacls "C:\AuditTest" /grant:r Everyone:(OI)(CI)(DE,DC,RA,WA)
+
+
+Perform an Audit Activity (Generate Events)
+echo test > C:\AuditTest\file1.txt
+del C:\AuditTest\file1.txt
+Generate Audit Report (Export Security Logs)
+ 
+
+
+Audit report is saved at:
+C:\AuditReport\Security_Audit_Report.evtx
+ Command to Download/Export Audit Report as TXT
+wevtutil qe Security /f:text > C:\AuditReport\Security_Audit_Report.txt

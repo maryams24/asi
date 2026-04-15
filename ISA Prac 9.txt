@@ -1,0 +1,74 @@
+﻿Practical:09
+Audit Report Preparation:
+
+
+✅ Step 1: Create a Folder for Audit Report
+mkdir AuditReport
+cd AuditReport
+
+
+
+
+✅ Step 2: Create a Main Audit Report File
+echo ===== SYSTEM AUDIT REPORT ===== > audit_report.txt
+echo. >> audit_report.txt
+
+
+
+
+✅ Step 3: Add System Information
+systeminfo >> audit_report.txt
+
+
+
+
+✅ Step 4: Add Current User Information
+echo. >> audit_report.txt
+echo ===== CURRENT USER ===== >> audit_report.txt
+whoami >> audit_report.txt
+
+
+
+
+✅ Step 5: Add IP Configuration Details
+echo. >> audit_report.txt
+echo ===== NETWORK CONFIGURATION ===== >> audit_report.txt
+ipconfig /all >> audit_report.txt
+
+
+
+
+✅ Step 6: Add Running Processes
+echo. >> audit_report.txt
+echo ===== RUNNING PROCESSES ===== >> audit_report.txt
+tasklist >> audit_report.txt
+
+
+
+
+✅ Step 7: Add Installed Software List
+echo. >> audit_report.txt
+echo ===== INSTALLED SOFTWARE ===== >> audit_report.txt
+wmic product get name,version >> audit_report.txt
+
+
+
+
+✅ Step 8: Add Disk Information
+echo. >> audit_report.txt
+echo ===== DISK INFORMATION ===== >> audit_report.txt
+wmic logicaldisk get name,freespace,size >> audit_report.txt
+
+
+
+
+✅ Step 9: Add User Accounts
+echo. >> audit_report.txt
+echo ===== USER ACCOUNTS ===== >> audit_report.txt
+net user >> audit_report.txt
+
+
+
+
+✅ Step 10: View the Final Report
+notepad audit_report.txt

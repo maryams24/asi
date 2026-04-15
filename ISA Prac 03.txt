@@ -1,0 +1,53 @@
+﻿Practical :03
+
+
+Vulnerability Assessment:
+
+
+1.Create the report file
+echo VULNERABILITY ASSESSMENT REPORT > assessment.txt
+
+
+2.System Information
+echo ==== SYSTEM INFORMATION ==== >> assessment.txt & systeminfo >> assessment.txt
+
+
+3.Current Logged-in User
+echo ==== CURRENT USER ==== >> assessment.txt & whoami >> assessment.txt
+
+
+4.User Accounts
+echo ==== USER ACCOUNTS ==== >> assessment.txt & net user >> assessment.txt
+
+
+5. Administrator Accounts
+echo ==== ADMINISTRATOR GROUP ==== >> assessment.txt & net localgroup administrators >> assessment.txt
+
+
+6. Installed Updates (Patch Status)
+echo ==== INSTALLED UPDATES ==== >> assessment.txt & wmic qfe list >> assessment.txt
+
+
+7.Running Services
+echo ==== RUNNING SERVICES ==== >> assessment.txt & sc query >> assessment.txt
+
+
+8. Open Network Connections
+echo ==== OPEN NETWORK PORTS 
+
+
+
+
+==== >> assessment.txt & netstat -ano >> assessment.txt
+
+
+9.Firewall Status
+echo ==== FIREWALL STATUS ==== >> assessment.txt & netsh advfirewall show allprofiles >> assessment.txt
+
+
+10.Running Processes
+echo ==== RUNNING PROCESSES ==== >> assessment.txt & tasklist >> assessment.txt
+
+
+11.Network Configuration
+echo ==== NETWORK CONFIGURATION ==== >> assessment.txt & ipconfig /all >> assessment.txt

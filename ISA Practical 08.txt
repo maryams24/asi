@@ -1,0 +1,60 @@
+﻿Practical :08
+
+
+Step 1: Go to Desktop
+cd %USERPROFILE%\Desktop
+
+
+echo FAST WIRELESS SECURITY AUDIT REPORT > wifi_audit.txt
+
+
+1️⃣ Show Wi-Fi interface details
+netsh wlan show interfaces >> wifi_audit.txt
+
+
+Shows SSID, signal strength, radio type, security
+2️⃣ Show wireless driver info
+netsh wlan show drivers >> wifi_audit.txt
+
+
+Shows supported security (WPA2/WPA3)
+3️⃣ List saved Wi-Fi profiles
+netsh wlan show profiles >> wifi_audit.txt
+
+
+Reveals stored networks (risk of credential exposure)
+4️⃣ Show current Wi-Fi profile details
+netsh wlan show profile name=* >> wifi_audit.txt
+
+
+Shows encryption & authentication type
+5️⃣ Show IP config
+ipconfig >> wifi_audit.txt
+
+
+Network assignment check
+6️⃣ Show ARP table (connected devices)
+arp -a >> wifi_audit.txt
+
+
+Detects nearby devices
+7️⃣ Show active connections
+netstat -n >> wifi_audit.txt
+
+
+Checks suspicious connections
+8️⃣ Show routing info (short)
+route print | find "0.0.0.0" >> wifi_audit.txt
+
+
+Confirms gateway
+9️⃣ Check host file
+type C:\Windows\System32\drivers\etc\hosts >> wifi_audit.txt
+
+
+Detects DNS redirection attacks
+🔟 Show firewall state
+netsh advfirewall show allprofiles >> wifi_audit.txt
+
+
+Confirms firewall enabled

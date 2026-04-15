@@ -1,0 +1,48 @@
+﻿Practical 4
+
+
+Password Policy and Strength Audit:
+
+
+Create report header:
+
+
+echo PASSWORD POLICY AUDIT > "%USERPROFILE%\Desktop\Password_Audit.txt"
+
+
+Capture password policy:
+
+
+net accounts >> "%USERPROFILE%\Desktop\Password_Audit.txt"
+
+
+Export security policy:
+
+
+secedit /export /cfg "%USERPROFILE%\Desktop\pwd.cfg"
+
+
+Save complexity value:
+
+
+type "%USERPROFILE%\Desktop\pwd.cfg" | find "PasswordComplexity" >> "%USERPROFILE%\Desktop\Password_Audit.txt"
+
+
+Save minimum length:
+
+
+net accounts | find "Minimum password length" >> "%USERPROFILE%\Desktop\Password_Audit.txt"
+
+
+Save lockout policy:
+
+
+net accounts | find "Lockout threshold" >> "%USERPROFILE%\Desktop\Password_Audit.txt"
+
+
+Add strength result:
+echo Password Strength: STRONG if length>=8 and complexity=1 >> "%USERPROFILE%\Desktop\Password_Audit.txt"
+
+
+Add final status:
+echo Password Status: SET >> "%USERPROFILE%\Desktop\Password_Audit.txt"

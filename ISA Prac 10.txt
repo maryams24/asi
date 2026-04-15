@@ -1,0 +1,73 @@
+﻿Practical 10
+Compliance Audit Simulation:
+✅ Step 1: Create a Folder for Audit Files
+mkdir C:\Compliance_Audit
+cd C:\Compliance_Audit
+
+
+________________
+
+
+✅ Step 2: System Information Audit
+systeminfo > system_info.txt
+
+
+✔ Stores complete system details.
+________________
+
+
+✅ Step 3: User Accounts Audit
+net user > users_list.txt
+
+
+For detailed info of all users:
+wmic useraccount get name,sid,status > user_details.txt
+
+
+________________
+
+
+✅ Step 4: Password Policy Check
+net accounts > password_policy.txt
+
+
+________________
+
+
+✅ Step 5: Running Services Audit
+sc query state= all > services_list.txt
+
+
+________________
+
+
+✅ Step 6: Installed Software Audit
+wmic product get name,version > installed_software.txt
+
+
+________________
+
+
+✅ Step 7: Firewall Status Check
+netsh advfirewall show allprofiles > firewall_status.txt
+
+
+________________
+
+
+✅ Step 8: Open Ports & Network Connections
+netstat -ano > open_ports.txt
+
+
+________________
+
+
+✅ Step 9: Group Policy Result
+gpresult /r > group_policy.txt
+
+
+________________
+
+
+✅ Step 10: Combine All Results into One File (Optional)
+copy *.txt final_compliance_report.txt

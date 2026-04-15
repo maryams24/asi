@@ -1,0 +1,48 @@
+﻿Practical :07
+Go to Desktop:
+cd %USERPROFILE%\Desktop
+
+
+echo FAST WEB APP SECURITY AUDIT REPORT > web_audit.txt
+
+
+Check website reachable:
+ping -n 2 google.com >> web_audit.txt
+
+
+
+
+ Get DNS info:
+nslookup google.com >> web_audit.txt
+
+
+Get only IP address:
+ping google.com | find "Reply" >> web_audit.txt
+
+
+ Check HTTP headers:
+curl -I http://google.com >>web_audit.txt
+
+
+Check HTTPS headers:
+curl -I https://google.com >>web_audit.txt
+
+
+Show active connections:
+netstat -n >> web_audit.txt
+
+
+Show listening ports:
+netstat -an | find "LISTEN" >>web_audit.txt
+
+
+Check ARP table:
+arp -a >> web_audit.txt
+
+
+ Show network config:
+ipconfig >> web_audit.txt
+
+
+Check host file (important for web attacks):
+type C:\Windows\System32\drivers\etc\hosts >> web_audit.txt

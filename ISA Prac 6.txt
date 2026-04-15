@@ -1,0 +1,56 @@
+﻿Practical:06
+
+
+Security Configuration Review:
+
+
+Create report file:
+
+
+echo SECURITY CONFIGURATION REVIEW > "%USERPROFILE%\Desktop\Security_Config_Audit.txt"
+
+
+System information:
+
+
+systeminfo | find "OS Name" >> "%USERPROFILE%\Desktop\Security_Config_Audit.txt"
+
+
+Firewall status:
+
+
+netsh advfirewall show allprofiles >> "%USERPROFILE%\Desktop\Security_Config_Audit.txt"
+
+
+Windows Defender status:
+
+
+sc query WinDefend >> "%USERPROFILE%\Desktop\Security_Config_Audit.txt"
+
+
+Automatic Updates status:
+
+
+sc query wuauserv >> "%USERPROFILE%\Desktop\Security_Config_Audit.txt"
+
+
+
+
+User Account Control (UAC):
+
+
+reg query HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA >> "%USERPROFILE%\Desktop\Security_Config_Audit.txt"
+
+
+
+
+Logged-in users:
+
+
+query user >> "%USERPROFILE%\Desktop\Security_Config_Audit.txt"
+
+
+
+
+ Final security status:
+echo Security Status: System Properly Configured (Audit Only) >> "%USERPROFILE%\Desktop\Security_Config_Audit.txt"

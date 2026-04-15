@@ -1,0 +1,28 @@
+﻿Network Scanning and Enumeration
+
+
+STEP 1 — Create a folder to store the report
+mkdir C:\NetReport
+STEP 2 — Get full IP configuration
+(Saves all your network settings)
+ipconfig /all > C:\NetReport\network_report.txt
+
+
+STEP 3 — Scan all devices on your network
+(Using arp -a — built-in Windows scanning)
+arp -a >> C:\NetReport\network_report.txt
+STEP 4 — Check active connections & listening ports
+netstat -ano >> C:\NetReport\network_report.txt
+STEP 5 — Check Wi-Fi details (SSID, Cipher, Key etc.)
+(remove key=clear if not needed)
+netsh wlan show interfaces >> C:\NetReport\network_report.txt
+netsh wlan show profiles >> C:\NetReport\network_report.txt
+netsh wlan show profile name=* key=clear >> C:\NetReport\network_report.txt
+
+
+STEP 6 — List all network adapters
+wmic nic get name,macaddress >> C:\NetReport\network_report.txt
+STEP 7 — Ping sweep (Basic network scan)
+for /l %i in (1,1,254) do ping -n 1 192.168.1.%i >> C:\NetReport\network_report.txt
+STEP 8 — Save system info
+systeminfo >> C:\NetReport\network_report.txt

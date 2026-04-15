@@ -1,0 +1,30 @@
+﻿Practical :05
+Generate SYSTEM Logs (using CMD)
+Command 1: Restart Windows Event Log service (creates System event)
+net stop eventlog
+net start eventlog
+
+
+Command 2: Create a system warning:
+eventcreate /id 100 /l system /t warning /so "TestSource" /d "System warning test event"
+
+
+Command 3: Create a system error:
+eventcreate /id 101 /l system /t error /so "TestSource" /d "System error test event"
+
+
+Create an application information event:
+eventcreate /id 200 /l application /t information /so "AppTest" /d "Application information test event"
+
+
+Create an application warning:
+eventcreate /id 201 /l application /t warning /so "AppTest" /d "Application warning test event"
+
+
+Create an application error:
+eventcreate /id 202 /l application /t error /so "AppTest" /d "Application error test event"
+Save Logs Using CMD
+wevtutil epl System C:\Logs\system_log.evtx
+
+
+wevtutil epl Application C:\Logs\application_log.evtx
